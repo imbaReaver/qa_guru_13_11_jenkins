@@ -37,7 +37,9 @@ public class TestBase {
     void addAttachments() {
         Attachments.screenshotAs("Last screenshot");
         Attachments.pageSource();
-        Attachments.browserConsoleLogs();
+        if (System.getProperty("browser") == "chrome") {
+            Attachments.browserConsoleLogs();
+        }
         Attachments.addVideo();
     }
 }
