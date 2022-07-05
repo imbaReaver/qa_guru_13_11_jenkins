@@ -1,6 +1,8 @@
 package tests;
 
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.CollectionCondition.texts;
@@ -13,6 +15,8 @@ public class PracticeFormTestsWithAllureAndJenkins extends TestBase {
 
     @Test
     @DisplayName("Some successful registration form test")
+    @Tag("registrationForm")
+    @Owner("ArtemBobkov")
     void successfulTest() {
         step("Open registration form", () -> {
             open("/automation-practice-form");
