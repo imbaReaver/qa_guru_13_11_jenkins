@@ -30,7 +30,7 @@ public class TestBase {
         Configuration.browser = browser;
         Configuration.browserVersion = version;
         Configuration.browserSize = size;
-        //Configuration.remote = String.format("https://%s:%s@%s", config.login(), config.password(), config.urlRemoteSelenoid());
+        Configuration.remote = String.format("https://%s:%s@%s", config.login(), config.password(), config.urlRemoteSelenoid());
     }
 
     @AfterEach
