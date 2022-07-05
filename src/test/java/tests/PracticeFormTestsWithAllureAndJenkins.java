@@ -11,12 +11,12 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
+@Owner("ArtemBobkov")
 public class PracticeFormTestsWithAllureAndJenkins extends TestBase {
 
     @Test
     @DisplayName("Some successful registration form test")
     @Tag("registrationForm")
-    @Owner("ArtemBobkov")
     void successfulTest() {
         step("Open registration form", () -> {
             open("/automation-practice-form");

@@ -12,22 +12,25 @@ import pages.components.Attachments;
 
 public class TestBase {
 
+    static CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
     @BeforeAll
     static void beforeAll() {
-        CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
-
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
 
+        String browser = System.getProperty("browser","chrome");
+        String version = System.getProperty("version","100");
+        String size = System.getProperty("browserSize", "1920x1080");
+
         Configuration.browserCapabilities = capabilities;
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browser = System.getProperty("browser","chrome");
-        Configuration.browserVersion = System.getProperty("version","100");
-        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        Configuration.remote = String.format("https://%s:%s@%s", config.login(), config.password(), config.urlRemoteSelenoid());
+        Configuration.browser = browser;
+        Configuration.browserVersion = version;
+        Configuration.browserSize = size;
+        //Configuration.remote = String.format("https://%s:%s@%s", config.login(), config.password(), config.urlRemoteSelenoid());
     }
 
     @AfterEach
